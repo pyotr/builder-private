@@ -1,0 +1,77 @@
+## /etc/salt/master
+# Salt Master configuration file
+
+## minion key acceptance strategies
+
+# *pre-seeding* the master with minion pubkeys is a quick way of doing things,
+# but it means those doing the deploys have access to the master server (to 
+# deposit the keys). 
+
+# *auto-accept* is another approach that simply accepts all incoming minion
+# requests. this is only secure when limited to your internal network.
+
+# *manual* for those who want a human to review and accept and each key request
+
+
+# at eLife pre-seeding worked very well until we wanted to tighten security
+# manual is, well, manual. we don't ever want to do that.
+# auto-accept is a good compromise but comes with some caveats 
+# (see builder/docs/caveats.md)
+
+
+# accept all keys ...
+auto_accept: True
+# ... but only from within subnet. 
+# <<value>> replaced by `builder/scripts/init-aws-master.sh` with internal IP address
+interface: <<private-ip-address>>
+
+# default level is warn
+log_level: info
+
+# which library is providing our remote state and pillar access
+# GitPython is very easy to install. see `builder/scripts/bootstrap.sh`
+# https://docs.saltstack.com/en/latest/topics/tutorials/gitfs.html#id4
+gitfs_provider: GitPython
+git_pillar_provider: GitPython
+
+# if salt is interrupted while monitoring a remote git instance, the lock file isn't cleared
+# this flag ensures the lock (if orphaned) is cleared by successive processes
+# NOTE: this doesn't always seem to work!
+gitfs_global_lock: False
+
+# which backend interfaces we should consult to find state for
+fileserver_backend:
+    - roots 
+    - git
+
+# list each remote project we should consult when attempting to determine state
+# https://docs.saltstack.com/en/latest/topics/tutorials/gitfs.html#simple-configuration
+gitfs_remotes:
+    # the local git repo approach is possible, but doesn't use any files that 
+    # are modified, defeating the purpose (development) within Vagrant
+    #- file:///vagrant/cloned-projects/elife-base-formula
+
+    # each project managed by the master server has one of these entries
+    # the `builder-base-formula` has it's state directly in the root of the repo ...
+    - ssh://git@github.com/elifesciences/builder-base-formula.git
+    # ... whereas most elife formulas have it within a `./salt/` subdir
+    - ssh://git@github.com/elifesciences/some-formula:
+        - root: salt
+
+# external pillar files
+# https://docs.saltstack.com/en/latest/ref/pillar/all/salt.pillar.git_pillar.html
+ext_pillar:
+    - git:
+        # replace this with private pillar repo
+        - master ssh://git@github.com/elifesciences/builder-private.git:
+            # possibly redundant?
+            - root: pillar
+            - env: base
+
+# if you want to serve state up directly from the filesystem.
+#file_roots:
+#    base:
+#        - /srv/salt/
+#pillar_roots:
+#    base:
+#        - /srv/pillar
