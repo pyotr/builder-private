@@ -9,3 +9,6 @@ base:
 
     'lax--*':
         - lax
+
+    'elife-website--*':
+        - elife-website
