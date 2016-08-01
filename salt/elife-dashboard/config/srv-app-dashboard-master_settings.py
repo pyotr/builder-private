@@ -17,6 +17,9 @@ log_level = "WARN"
 log_file = "/var/log/app.log"
 process_queue_log_file = "/var/log/process-queue.log"
 
+aws_access_key_id = "{{ pillar.elife_dashboard.aws.access_id }}"
+aws_secret_access_key = "{{ pillar.elife_dashboard.aws.secret_access_key }}"
+
 # Database
 database = "{{ app.db.name }}"
 host = "{{ salt['elife.cfg']('cfn.outputs.RDSHost') or app.db.host }}"
