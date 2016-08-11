@@ -19,6 +19,10 @@ elife:
         key: null
         github_token: null
 
+    projects_builder:
+        # a salt:// path to a key in this repository that can be used to checkout projects
+        key: null
+
     bootstrap_user:
         username: ubuntu # vagrant in dev
 
