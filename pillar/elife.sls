@@ -20,7 +20,7 @@ elife:
 
     projects_builder:
         # a salt:// path to a key in this repository that can be used to checkout projects
-        key: null
+        key: salt://elife/config/projects-builder-pem
 
     bootstrap_user:
         username: ubuntu # vagrant in dev
