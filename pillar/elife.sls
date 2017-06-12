@@ -16,7 +16,6 @@ elife:
         aws_access: null
         aws_secret: null
         aws_region: us-east-1
-        key: null
         github_token: null
 
     projects_builder:
@@ -53,8 +52,6 @@ elife:
 
     webserver:
         username: www-data
-        acme_server: https://acme-v01.api.letsencrypt.org/directory
-        acme_staging_server: https://acme-staging.api.letsencrypt.org/directory
 
     web_users:
         '':
@@ -79,13 +76,6 @@ elife:
         port: 6379
 
     logging:
-        collectd:
-            enabled: False
-            # where collectd should send it's stats
-            # unencrypted! make sure this is internal traffic or tunnelled
-            send_host: 192.168.1.2
-            send_port: 25826
-
         # loggly destination for syslog-ng logs
         # https://www.loggly.com/
         loggly:
@@ -94,12 +84,8 @@ elife:
             port: 514
             token: null
 
-        # papertrail destination for syslog-ng logs
-        # https://papertrailapp.com/
-        papertrail:
-            enabled: False
-            host: "logs3.papertrailapp.com"
-            port: 48058
+    newrelic:
+        enabled: False
 
     # postfix using AWS SES as a backend
     postfix_ses_mail:
@@ -109,6 +95,12 @@ elife:
         user: null # SES-created IAM username
         pass: null # SES-created IAM password
 
-    jenkins:
-        slack:
-            channel_hook: https://hooks.slack.com/services/.../...
+    external_volume:
+        device: /dev/xvdh
+        filesystem: ext4
+        directory: /ext
+
+    php:
+        upload_max_filesize: 2M
+        post_max_size: 8M
+
