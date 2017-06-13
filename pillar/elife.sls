@@ -21,6 +21,7 @@ elife:
     projects_builder:
         # a salt:// path to a key in this repository that can be used to checkout projects
         key: salt://elife/config/projects-builder-pem
+        github_token: null
 
     bootstrap_user:
         username: ubuntu # vagrant in dev
@@ -41,9 +42,9 @@ elife:
                 - example-user
 
         # removes keys. happens after allowing keys
-        denied:
-            project1:
-                - example-user
+        denied: {}
+            #project1:
+            #    - example-user
 
     backups:
         # AWS credentials for uploading backups to S3

@@ -7,5 +7,14 @@ base:
     '*':
         - elife
 
+    'master-server--*':
+        - master-server
+
     'lax--*':
         - lax
+
+    'api-dummy--*':
+        - api-dummy
+
+    'journal--*':
+        - journal
