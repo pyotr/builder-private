@@ -24,4 +24,3 @@ journal:
 elife:
     redis:
         maxmemory: 512
-~
