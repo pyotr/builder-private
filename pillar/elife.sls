@@ -8,7 +8,9 @@ elife:
     # another more fine grained approach to determining environment
     # production is 'prod' by default
     # can be overriden per-project by pillar files
-    env: ci
+    env: prod
+    # the domain under which all hostnames will be created
+    domain: example.com
 
     deploy_user:
         username: elife
@@ -75,6 +77,8 @@ elife:
     redis:
         host: 127.0.0.1
         port: 6379
+        persistent: false
+        maxmemory: 256
 
     logging:
         # loggly destination for syslog-ng logs
