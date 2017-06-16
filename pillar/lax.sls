@@ -1,7 +1,7 @@
 lax:
     app:
         # http://techblog.leosoto.com/django-secretkey-generation/
-        secret: dummy-secret-do-not-use-in-prod
+        secret: dummy-secret-do-not-use
     db:
         name: lax
         username: foouser # case sensitive. use all lowercase

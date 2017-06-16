@@ -5,10 +5,8 @@ elife:
     # deprecated, use pillar.env
     dev: False
 
-    # another more fine grained approach to determining environment
-    # production is 'prod' by default
     # can be overriden per-project by pillar files
-    env: prod
+    env: baseline
     # the domain under which all hostnames will be created
     domain: example.com
 

@@ -1,6 +1,6 @@
 journal:
-    api_url: http://prod--api-dummy.thedailybugle.internal
-    api_url_public: https://prod--api-dummy.thedailybugle.org
+    api_url: http://baseline--api-dummy.thedailybugle.internal
+    api_url_public: https://baseline--api-dummy.thedailybugle.org
     api_key: a_authentication_key
     side_by_side_view_url: null
     default_host: dailybugle.org
