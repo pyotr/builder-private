@@ -54,6 +54,9 @@ elife:
     webserver:
         username: www-data
 
+    nginx:
+        certificate_folder: /etc/certificates
+
     web_users:
         '':
             # the default 'open secret' .htaccess user/pass
