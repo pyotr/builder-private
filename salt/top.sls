@@ -22,6 +22,7 @@ base:
 
     'api-dummy--*':
         - elife.php7
+        - elife.composer
         - elife.nginx
         - elife.nginx-php7
         - api-dummy
@@ -29,6 +30,7 @@ base:
 
     'journal--*':
         - elife.php7
+        - elife.composer
         - elife.nginx
         - elife.nginx-php7
         - elife.nginx-error-pages
