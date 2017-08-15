@@ -10,14 +10,16 @@ base:
         - master-server
 
     'lax--*':
+        - elife.python3
         - elife.nginx
         - elife.uwsgi
-        - elife.acme
         - elife.postgresql
+        - elife.mercurial
         - lax
         - lax.uwsgi
-        #- lax.reporting
-        - elife.mercurial
+        - lax.query-upload
+        # required by bot-lax-adaptor:
+        - elife-reporting
         - lax.adaptors
 
     'api-dummy--*':
