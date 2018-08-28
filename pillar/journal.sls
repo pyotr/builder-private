@@ -1,9 +1,9 @@
 journal:
     # an internal URL - on the internal DNS hosted zone - for the api-gateway or api-dummy project
-    api_url: http://baseline--api-dummy.thedailybugle.internal
+    api_url: http://baseline--api-dummy.bjce.internal
 
     # a public URL - on the public DNS hosted zone - for the api-gateway or api-dummy project
-    api_url_public: https://baseline--api-dummy.thedailybugle.org
+    api_url_public: https://baseline--api-dummy.bjce.ru
 
     # will be used as Authorization header to access the API
     # only need to specify this if you want to access unpublished content from this Journal instance - corner case
@@ -13,10 +13,10 @@ journal:
     side_by_side_view_url: null
 
     # default hostname for this journal instance 
-    default_host: dailybugle.org
+    default_host: bjce.ru
 
     # URL for observer instance - to produce RSS feeds
-    observer_url: http://prod--observer.elifesciences.org
+    observer_url: http://prod--observer.bjce.ru
 
     # name of the cookie sent by this journal instance for session tracking
     session_name: journal
