@@ -4,7 +4,7 @@
 base:
     # all projects get these
     '*':
-        - elife
+        - continuum
 
     'master-server--*':
         - master-server
