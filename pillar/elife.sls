@@ -46,6 +46,14 @@ elife:
             #project1:
             #    - example-user
 
+    known_hosts: {}
+    
+    coveralls:
+        tokens: {}
+    
+    daily_system_updates:
+        enabled: True
+        
     backups:
         # AWS credentials for uploading backups to S3
         s3_access: null
