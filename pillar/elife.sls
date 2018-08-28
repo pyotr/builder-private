@@ -8,11 +8,11 @@ elife:
     # can be overriden per-project by pillar files
     env: baseline
     # the domain under which all hostnames will be created
-    domain: example.com
+    domain: bjce.ru
 
     deploy_user:
         username: elife
-        email: null
+        email: for@pyotr.pro
         aws_access: null
         aws_secret: null
         aws_region: us-east-1
