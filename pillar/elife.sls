@@ -12,6 +12,7 @@ elife:
 
     deploy_user:
         username: elife
+        password: science
         email: for@pyotr.pro
         aws_access: null
         aws_secret: null
