@@ -64,6 +64,9 @@ elife:
 
     nginx:
         certificate_folder: /etc/certificates
+        
+    certificates:
+        username: www-data
 
     web_users:
         '':
